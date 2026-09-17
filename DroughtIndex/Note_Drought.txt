@@ -1,0 +1,36 @@
+################################ Download drought index ################################
+### GEE
+SMAP SM L4; 9km; 2015-2025 (actual: 2015.03 - 2026.08; surface layer)
+EAR5 LAND SM; 9km; 2003-2025 (actual: 1950 - 2026; the second layer at 7-28cm: volumetric_soil_water_layer_2)
+EAR5 LAND VPD; 9km; 2003-2025 (If use 6.1078 in the equation, unit is hPa, otherwise unit is kPa).
+SPEI; 0.5 degree; 2003-2024 (actual: 1901.01 - 2025.01)
+GRACE TWSA MASCON CRI; 2003-2023 (actual: 2002.03 - 2024.09; 55.7-km nominally, but effective sp is approximately 300 km)
+
+### FILEZILLA
+SMOS SM; 25km; 2010-2023 (actual: 2010 - 2024.08)
+See details in /Volumes/LaCie/SDSU_PhDwork/work10_Inni_Emission_Water/Data/SM_SMOS/
+
+### WEB
+MEIv2: https://psl.noaa.gov/enso/mei/
+
+
+################################ GRACE TWSA ################################
+GRACE TWSA MASCON CRI and MASCON have obviously increasing trend. 
+GRACE TWSA LAND does not have such trend, but data is available only to 2017.01.
+These datasets have irregular months, not suitable/consistent for annual mean.
+
+
+################################ Extraction from GEE ################################
+## Three products are extracted from GEE directly:
+SM_ERA5_LAND, VPD_ERA5_LAND, and SM_SMAP_L4
+
+## Two ways to extract: 
+1. Extract data from resampled data at a fixed scale (resample: either resample GEE product or input raster to match their spatial projection) 
+2. Extract data from raw data at native grid (native grid; extract point-to-point)
+The first way is fast but not so accurate due to resampling; in contrast, the second way is very slow but more accurate.
+
+## What I did:
+1. For validation using field observations for 2018-2019 (folder: ../work10_Inni_Emission_Water/Figures/FigS_SM_Compare_Evaluate): I used native grid extraction by point.
+2. For extracting soil moisture at peatland, non-peatland, and study area for 2003-2025 (folder: ../work10_Inni_Emission_Water/Data/SM_ERA5_LAND (or VPD_ERA5_LAND, and SM_SMAP_L4): I used resample extraction by region. 
+
+

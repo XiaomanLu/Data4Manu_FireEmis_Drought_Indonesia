@@ -1,0 +1,54 @@
+## The final version used is Rsa_v06.
+
+####################################################################################
+1. Download_data 
+Download_MAIAC_AOD_MCD19A2.py
+Output: /Volumes/LaCie/SDSU_PhDwork/work0_Done/work7_Inni_Ce_Water_ERL/data/MAIAC_AOD_Inni
+
+
+####################################################################################
+2. Tile_coordinates: Create coordinate for MODIS tiles 
+Creat_modistile_latlon.py
+Convert_Sinusoidal2Degree.R
+Output: /Volumes/LaCie/SDSU_PhDwork/work0_Done/work7_Inni_Ce_Water_ERL/data/LatLon
+
+
+####################################################################################
+3. Wind processing 
+Wind_ERA5_split2doys.pro
+Output: /Volumes/LaCie/SDSU_PhDwork/work0_Done/work7_Inni_Ce_Water_ERL/data/Wind_ERA5
+
+
+####################################################################################
+4. AF Processing 
+AF_split2doys.R
+AF_location_on_MAIACAOD_map.m  (Find the location of AF on MAIAC AOD (MODIS Tiles) map)
+Output: /Volumes/LaCie/SDSU_PhDwork/work0_Done/work7_Inni_Ce_Water_ERL/data/AF_Inni
+
+
+####################################################################################
+5. Rsa calculation (MAIAC_Rsa_calc_v06 folder)
+MAIAC_Rsa_calculation_v06.pro   
+Output: /Volumes/LaCie/SDSU_PhDwork/work0_Done/work7_Inni_Ce_Water_ERL/data/Rsa_v06_NewWD
+
+
+####################################################################################
+6. Extract class and/or TWS for Rsa items (Extract_class folder)
+Extract_factor_RsaV06.R (Extract Peat/Island/LC/Province during 2002-2019)
+Output: same as step5
+
+
+####################################################################################
+7. Ce calculation 
+Output: /Volumes/LaCie/SDSU_PhDwork/work0_Done/work7_Inni_Ce_Water_ERL/figures/Fig5_Fig8_FigS1_Rsa_FRP_Scatterplot/work10_Rsa_FRP_Scatterplot_2002_2020_Eachyear_MergeRegion/Eachyear2_NewWD_rmOutlier
+
+
+####################################################################################
+8. Ce process
+Set Ce as nan value if its p-value <= 0.01;
+Filled nan Ce values using the year with closest soil moisture as this year.
+
+
+
+
+
